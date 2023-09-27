@@ -1,0 +1,25 @@
+// Protocol Buffer to manage data flow between duets.ai microservices
+syntax = "proto3";
+
+// Message for data flow between Zoom Plugin and Transcription Service
+message TranscriptionRequest {
+    string meeting_uuid = 1; // The uuid of the meeting that was recorded
+    timestamp timestamp = 2; // The time the meeting was recorded
+    string teacher_email = 3; 
+    string student_email = 4; 
+    string teacher_audio = 5; // A download link to the teacher's audio file
+    string student_audio = 6; // A download link to the student's audio file
+    //Add the languages that were spoken in the meeting?
+    //Should I make student and teacher enums?
+}
+
+// Acknowledgement message
+message Acknowledgement {
+    string message = 1;
+    timestamp timestamp = 2;
+}
+
+//Message for data flow betweeen Transcription Service and AI Analysis 
+message AnalysisRequest {
+    string transcription_id = 1; //The id of the transcription record that was stored in the database
+}
