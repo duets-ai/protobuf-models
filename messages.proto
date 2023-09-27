@@ -4,7 +4,7 @@ syntax = "proto3";
 // Message for data flow between Zoom Plugin and Transcription Service
 message TranscriptionRequest {
     string meeting_uuid = 1; // The uuid of the meeting that was recorded
-    timestamp timestamp = 2; // The time the meeting was recorded
+    int64 timestamp = 2; // The time the meeting was recorded
     string teacher_email = 3; 
     string student_email = 4; 
     string teacher_audio = 5; // A download link to the teacher's audio file
@@ -16,7 +16,7 @@ message TranscriptionRequest {
 // Acknowledgement message
 message Acknowledgement {
     string message = 1;
-    timestamp timestamp = 2;
+    int64 timestamp = 2;
 }
 
 //Message for data flow betweeen Transcription Service and AI Analysis 
